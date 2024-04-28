@@ -1,1 +1,1 @@
-# ai-workshop-cas-spring-2024
+# Workshop: Practical AI Applications for Underwriting
