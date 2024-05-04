@@ -17,6 +17,14 @@ client = instructor.patch(OpenAI(api_key=os.getenv("OPEN_AI_KEY")))
 batch_size = 250
 embedding_model = "text-embedding-3-large"
 
+prompt_template = """
+Using the document provided, answer the following question:
+
+question: {question}
+
+context: {context}
+"""
+
 
 def cosine_similarity(a: list[float], b: list[float]) -> float:
     return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
@@ -188,6 +196,7 @@ def get_completion(prompt: str) -> Markdown:
     """
     OpenAI returns a complex object, this is a simple wrapper function to directly return the completion text.
     """
+
     completion = client.chat.completions.create(
         model="gpt-4-turbo",
         messages=[
@@ -197,6 +206,13 @@ def get_completion(prompt: str) -> Markdown:
             },
         ],
     )
+
+    cost_dollars = completion.usage.total_tokens / 100_000
+
+    print(
+        f"Completion used {completion.usage.total_tokens} tokens costing ${cost_dollars:.2f}"
+    )
+
     return Markdown(completion.choices[0].message.content)
 
 
