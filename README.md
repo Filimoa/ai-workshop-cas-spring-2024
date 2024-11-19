@@ -11,5 +11,7 @@ The workshop will cover the following topics:
 Main notebook is found in `src/notebooks/main_notebook.ipynb`. 
 Solutions notebook is found in `src/notebooks/solutions.ipynb`. 
 
+Note: This is an OpenAI based implementation and you will need an API key - you can find an intro [here](https://platform.openai.com/docs/quickstart).
+
 You can find the workshop slides [here](https://1drv.ms/p/c/4bff9d310d468c21/Eb58pXFHEApCuE7tXD2aMEsBJ6IhXSwOXKOJoH91PzfEcQ)
 
